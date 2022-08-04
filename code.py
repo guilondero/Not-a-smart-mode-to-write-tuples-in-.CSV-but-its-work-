@@ -26,14 +26,14 @@ def CSVfile(data):
     
     header = "id,time,value,otherValue,someValue"  #header for the  csv 
 
-    if fileExiste == False: #if the file dont existe, need create and add the HEADER 
+    if fileExiste == False: #if the file dont existe, need create and write the HEADER 
         f = open("/home/user/yourpath", "w")   #path where the file is gonna be save 
         f.write(header)    
         f.write('\n')
         f.write(dataString)
         f.write('\n')
         f.close()
-    else: #se o arquivo existe é necessario inserir os dados
+    else: #if the file existe, just need to write the dataString
         f = open("/home/user/yourpath", "a")
         f.write(dataString)
         f.write('\n')
