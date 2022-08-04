@@ -20,19 +20,21 @@ def convertTupleToString(tuple):
     
 
 def CSVfile(data):
-    fileExiste = exists("/home/user/yourpath") #verifica se o arquivo existe
+    fileExiste = exists("/home/user/yourpath") #verify if the file exist, return a bolean 
     
     dataString = convertTupleToString(data) #transform the tuple in a string with the ','
+    
+    header = "id,time,value,otherValue,someValue"  #header for the  csv 
 
-    if fileExiste == False: #se o arquivo nao existe é necessario criar o cabeçalho e inserir os dados
-        f = open("/home/user/yourpath", "w")
-        f.write("id,data,datasys,longitude,latitude,odometro,velocidade,ignicao,rpm,transparent_data,ibutton,dir,in1,out1,out2,gps,gprs,horimetro,voltagem,temperatura,contador,motivo,pacote")
+    if fileExiste == False: #if the file dont existe, need create and add the HEADER 
+        f = open("/home/user/yourpath", "w")   #path where the file is gonna be save 
+        f.write(header)    
         f.write('\n')
         f.write(dataString)
         f.write('\n')
         f.close()
     else: #se o arquivo existe é necessario inserir os dados
-        f = open("/home/londero/gateway/python/GV53MG/csvTrack.csv", "a")
+        f = open("/home/user/yourpath", "a")
         f.write(dataString)
         f.write('\n')
         f.close()
